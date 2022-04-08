@@ -1,9 +1,9 @@
-/* 공통내용 */
+/* 怨듯넻�궡�슜 */
 .content {
 	height: 800px;
 }
 
-/* 로그인폼 */
+/* 濡쒓렇�씤�뤌 */
 .form-border {
 	border: 2px solid black;
 	border-radius: 10px;
@@ -11,7 +11,7 @@
 	box-sizing: border-box;
 }
 
-/* 유저관련버튼 */
+/* �쑀��愿��젴踰꾪듉 */
 .userBtn {
 	width: 400px;
 	border: 0;
@@ -34,7 +34,7 @@
 	color: black;
 }
 
-/* 게시판 관련 버튼 */
+/* 寃뚯떆�뙋 愿��젴 踰꾪듉 */
 .boardBtn {
 	width: 70px;
 	border: 0;
@@ -93,6 +93,7 @@
 	font-weight: bold;
 }
 
+/* 유효성체크 */
 #id_ok{
 	color: green;
 	display: none;
@@ -109,7 +110,24 @@
 	color: red;
 	display: none;
 }
-/* board영역*/
+
+#id_null_ck{
+	display: none;
+	color: red;
+}
+#pw_null_ck{
+	display: none;
+	color: red;	
+}
+#name_null_ck{
+	display: none;
+	color: red;	
+}
+
+
+
+
+/* board�쁺�뿭*/
 .form-write {
 	border-radius: 5px;
 	border: 1px solid black;
@@ -137,7 +155,7 @@
 	margin-left: 40px;
 }
 
-/* 페이지 영역 */
+/* �럹�씠吏� �쁺�뿭 */
 .pagination>.active>a {
 	background-color: black;
 	color: white;
@@ -147,7 +165,7 @@
 	color: black;
 }
 
-/* footer영역 */
+/* footer�쁺�뿭 */
 .footer {
 	background-color: black;
 	display: flex;

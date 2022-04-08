@@ -11,14 +11,17 @@
 			<input type="text" class="form-control" id="userId" autocomplete="off" onkeyup="enterkey();">
 			<span id="id_ok">사용 가능한 아이디입니다.</span>
 			<span id="id_no">아이디가 이미 존재합니다.</span>
+			<span id="id_null_ck">아이디를 입력해주세요.</span>
 		</div>
 		<div class="form-group" style="width:400px;">
 			<label for="userPassword">비밀번호</label> 
 			<input type="password" class="form-control" id="userPassword" onkeyup="enterkey();">
+			<span id="pw_null_ck">비밀번호를 입력해주세요.</span>
 		</div>
 		<div class="form-group" style="width:400px;">
 			<label for="userName">이름</label> 
 			<input type="text" class="form-control" id="userName" autocomplete="off" onkeyup="enterkey();" />
+			<span id="name_null_ck">이름을 입력해주세요.</span>
 		</div>
 		<label for="verify">
 		<input type="checkbox" id="verify" onclick='check(this)'/> 관리자로 가입하기

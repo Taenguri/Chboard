@@ -1,12 +1,48 @@
 
 
-// 아이디체크후 정보수정 변수
+// 아이디 중복 체크
 let idCheck = false;
+// 아이디 공백체크
+let idNullCheck = false;
+// 비밀번호 공백체크
+let pwNullCheck = false;
+// 이름 공백체크
+let nameNullCheck = false;
 
 
 
 //회원정보수정
 document.querySelector("#adminUserUpdate_btn").addEventListener("click", function() {
+
+
+	/* 아이디 공백체크 */
+	if (document.getElementById('userId').value == "") {
+		id_null_ck.style.display = 'block';
+		idNullCheck = false;
+	} else {
+		id_null_ck.style.display = 'none';
+		idNullCheck = true;
+	}
+
+	/* 비밀번호 공백체크 */
+	if (document.getElementById('userPassword').value == "") {
+		pw_null_ck.style.display = 'block';
+		pwNullCheck = false;
+	} else {
+		pw_null_ck.style.display = 'none';
+		pwNullCheck = true;
+	}
+
+	/* 이름 공백체크 */
+	if (document.getElementById('userName').value == "") {
+		name_null_ck.style.display = 'block';
+		nameNullCheck = false;
+	} else {
+		name_null_ck.style.display = 'none';
+		nameNullCheck = true;
+	}
+
+
 
 
 
@@ -19,11 +55,11 @@ document.querySelector("#adminUserUpdate_btn").addEventListener("click", functio
 	formData.append('verify', document.getElementById("verify").value);
 
 
-	if (idCheck) {
+	if (idCheck && idNullCheck && pwNullCheck && nameNullCheck) {
 		xhr.open('PUT', '/rest/admin/user/' + formData.get('userNo'));
 		xhr.send(formData);
 	} else {
-		alert("아이디가 중복됐습니다.");
+		alert("입력값들을 확인해주세요.");
 	}
 
 
@@ -50,7 +86,7 @@ document.querySelector("#adminUserUpdate_btn").addEventListener("click", functio
 
 
 // 아이디 중복 체크
-document.querySelector("#userId").addEventListener("keyup", function() {
+document.querySelector("#userId").addEventListener("keyup", function(event) {
 
 	let userId = document.getElementById("userId").value
 
@@ -69,16 +105,21 @@ document.querySelector("#userId").addEventListener("keyup", function() {
 			if (xhr.responseText == "success") {
 				id_ok.style.display = 'block';
 				id_no.style.display = 'none';
+				id_null_ck.style.display = 'none';
 				idCheck = true;
 			}
 			else if (xhr.responseText == "fail") {
 				id_ok.style.cssText = 'display: none';
 				id_no.style.cssText = 'display: block';
+				id_null_ck.style.display = 'none';
 				idCheck = false;
 			}
 		} else {
+			if(event.keyCode==8){				// 백스페이스 오류 방지
+			}else{
 			alert("오류 발생");
-			location.href = '/register';
+			location.href = '/userList';
+			}
 		}
 	};
 

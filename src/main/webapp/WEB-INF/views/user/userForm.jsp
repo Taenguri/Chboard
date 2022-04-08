@@ -19,14 +19,17 @@
 			<input type="text" class="form-control" id="userId" autocomplete="off" value="${userdata.userId}" onFocus="this.value=''; return true;" onkeyup="enterkey();">
 			<span id="id_ok">사용 가능한 아이디입니다.</span>
 			<span id="id_no">아이디가 이미 존재합니다.</span>
+			<span id="id_null_ck">아이디를 입력해주세요.</span>
 		</div>
 		<div class="form-group" style="width:400px;">
 			<label for="userPassword">비밀번호</label> 
-			<input type="password" class="form-control" id="userPassword" value="${userdata.userPassword}" onFocus="this.value=''; return true;" onkeyup="enterkey();">
+			<input type="password" class="form-control" id="userPassword"  onkeyup="enterkey();">
+			<span id="pw_null_ck">비밀번호를 입력해주세요.</span>
 		</div>
 		<div class="form-group" style="width:400px;">
 			<label for="userName">이름</label> 
 			<input type="text" class="form-control" id="userName" autocomplete="off" value="${userdata.userName}" onFocus="this.value=''; return true;" onkeyup="enterkey();">
+			<span id="name_null_ck">이름을 입력해주세요.</span>
 		</div>		
 		<button id="userUpdate_btn" class="userBtn">수정</button>
 		<button id="userdelete_btn" class="userBtn">삭제</button>
