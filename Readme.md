@@ -1,3 +1,10 @@
+
+# 테이블 설계서
+
+![테이블설계서.png](/img/%ED%85%8C%EC%9D%B4%EB%B8%94%EC%84%A4%EA%B3%84%EC%84%9C.png)
+<br/><br/><br/><br/><hr/><br/><br/><br/>
+
+
 # ERD
 
 ![ERD.png](/img/ERD.png)<br/><br/>
@@ -18,10 +25,3 @@ regdate = 글 작성일<br/>
 hit = 조회수<br/>
 new_mark = 뱃지 여부 ( Ex : 최신글 new뱃지 붙히기)<br/><br/><br/>
 
-<hr/>
-
-
-
-# 테이블 설계서
-
-![테이블설계서.png](/img/%ED%85%8C%EC%9D%B4%EB%B8%94%EC%84%A4%EA%B3%84%EC%84%9C.png)
