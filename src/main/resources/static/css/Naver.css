@@ -1,0 +1,151 @@
+
+.naver_nav{
+    display: flex;
+    height: 60px;
+    align-items: center;
+}
+
+.naver_ul{
+    background-color: black;
+    display: flex;
+    list-style:none;
+}
+
+.deco{
+    width: 100%;
+    height: 50px;
+    background-color:#465163;
+
+}
+
+.deco ul{
+    display: flex;
+    list-style: none;
+    line-height: 50px;
+    color: white;
+}
+.deco ul span{
+    margin: 0 20px;
+}
+.search_area{
+	margin:0 auto;
+}
+
+.green_window {
+	display: inline-block;
+	width: 366px;
+	border: 3px solid #2db400;
+}
+.input_text {
+	width: calc( 100% - 14px );
+	margin: 6px 7px;
+	border: 0;
+	font-weight: bold;
+	font-size: 16px;
+	outline: none;
+}
+.sch_smit {
+	width: 54px; height: 43px;
+	margin: 0; border: 0;
+	vertical-align: top;
+	background: #22B600;
+	color: white;
+	font-weight: bold;
+	border-radius: 1px;
+	cursor: pointer;
+    transition: 0.4s;
+}
+.sch_smit:hover {
+	background: #56C82C;
+}
+
+.search_result{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 3px solid #465163;
+    height: 50px;
+}
+
+
+.inner{
+    margin: 0 auto;
+    width: 70%;
+    border-left: 1px dashed gray;
+    border-right: 1px dashed gray;
+    box-sizing: border-box;
+    padding: 30px;
+}
+.bookList{
+    margin-top: 40px;
+    height: 200px;
+    display: flex;
+}
+
+.book_image{
+    width: 15%;
+}
+
+.bookContent{
+    width: 85%;
+    padding: 0 20px;
+}
+
+.count{
+    margin-top: 10px;
+    padding-top: 10px;
+    height: 60px;
+    border-bottom: 3px solid gray;
+}
+.count #count_main{
+    font-weight: bold;
+    font-size: 20px;
+}
+.count #count_sub{
+    margin-left: 10px;
+
+}
+
+.bookTitle{
+    height: 20%;
+}
+.bookTitle span{
+    font-weight: bold;
+}
+.pub{
+    height: 20%;
+}
+.pub span{
+    color: gray;
+}
+.pub #bar{
+    margin : 0 10px;
+}
+.price{
+    height: 20%;
+}
+#origin{
+	text-decoration: line-through;
+}
+#discount{
+	color:red;
+}
+
+.intro{
+    height: 20%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.intro span{
+    font-family: serif;
+}
+
+.endline{
+    border-bottom: 5px solid #465163;
+}
+
+.search_result span b{
+	font-size: 20px;
+}

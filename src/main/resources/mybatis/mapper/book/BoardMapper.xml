@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.chboard.repository.BoardMapper">
+
+
+	<resultMap id="BoardMap" type="java.util.HashMap">
+		<id property="boardNo" column="board_no"/>
+		<result property="title" column="title"/>
+		<result property="content" column="content"/>
+		<result property="writer" column="writer"/>
+		<result property="regdate" column="regdate"/>
+		<result property="hit" column="hit"/>
+		<result property="newMark" column="new_mark"/>
+	</resultMap>
+
+
+	<!-- 게시판검색관련 -->
+     <sql id="search">
+		<if test="condition != null">
+			<if test="condition == 'title'.toString()">AND TITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="condition == 'content'.toString()">AND CONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="condition == 'writer'.toString()">AND WRITER LIKE '%' || #{keyword} || '%'</if>
+			<if test="condition == 'titleContent'.toString()">AND (TITLE LIKE '%' || #{keyword} || '%') or (CONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
+
+
+
+
+	<!-- 글 작성 -->
+	<insert id="boardWrite">
+		insert into board(board_no,title,content,writer)
+				   values(board_seq.nextval,#{title},#{content},#{writer})	
+	</insert>
+
+	<!-- 리스트 -->
+   	<select id="list" resultMap="BoardMap">
+		select board_no, title, content, writer, regdate, hit, new_mark
+		from( select ROW_NUMBER() OVER(ORDER BY board_no DESC) AS rn, board_no, title, content, writer, regdate, hit, new_mark from board WHERE 1=1 <include refid="search"></include>)
+		where rn between #{pStart} and #{pEnd}
+	</select>	
+	
+	<!-- 글조회 -->
+	<select id="content" resultMap="BoardMap">
+		select * from board where board_no = #{boardNo}
+	</select>
+	
+	<!-- 글삭제 -->
+	<delete id="boardDelete">
+		delete from board where board_no = #{boardNo}
+	</delete> 
+	
+	<!-- 글수정 -->
+	<update id="boardUpdate">
+		update board set title = #{title}, content = #{content},writer = #{writer}
+		where board_no = #{boardNo}
+	</update>	
+	
+	<!-- 조회수 증가 -->
+	<update id="boardHit">
+		update board SET hit = hit + 1 where board_no = #{boardNo}
+	</update>
+	
+	<!-- 총 게시물 숫자 -->
+	<select id="listCount" resultType="int">
+		select count(*) from board WHERE 1=1 <include refid="search"></include>
+	</select>
+	
+</mapper>
