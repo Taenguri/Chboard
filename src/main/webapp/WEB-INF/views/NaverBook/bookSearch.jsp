@@ -50,7 +50,9 @@
 		                    <span>${bookList.title}</span>
 		                </div>
 		                <div class="pub">
-		                    <span>${bookList.author}</span> <span id="bar">|</span> <span>${bookList.publisher}</span>  <span id="bar">|</span> <span>${bookList.pubdate}</span>
+		                    <span>${bookList.author}</span> <span id="bar">|</span> <span>${bookList.publisher}</span>  <span id="bar">|</span>
+		                     <span><fmt:parseDate value='${bookList.pubdate}' var='trading_day' pattern='yyyymmdd'/><fmt:formatDate value="${trading_day}" pattern="yyyy.mm.dd"/></span>
+
 		                </div>
 		                <div class="price">
 		                    <span id="origin">${bookList.price}원</span> &nbsp; → &nbsp;<span id="discount">${bookList.discount}원</span>
