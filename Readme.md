@@ -23,5 +23,12 @@ content = 내용<br/>
 writer = 글 작성자<br/>
 regdate = 글 작성일<br/>
 hit = 조회수<br/>
-new_mark = 뱃지 여부 ( Ex : 최신글 new뱃지 붙히기)<br/><br/><br/>
+new_mark = 뱃지 여부 ( Ex : 최신글 new뱃지 붙히기)
 
+## reply
+
+reply_no = 댓글 번호<br/>
+board_no = 글 번호<br/>
+reply_content = 댓글 내용<br/>
+reply_writer = 댓글 작성자<br/>
+reply_regdate = 댓글 작성일<br/>
