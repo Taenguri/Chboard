@@ -52,11 +52,19 @@
 		                <div class="pub">
 		                    <span>${bookList.author}</span> <span id="bar">|</span> <span>${bookList.publisher}</span>  <span id="bar">|</span>
 		                     <span><fmt:parseDate value='${bookList.pubdate}' var='pubdate' pattern='yyyymmdd'/><fmt:formatDate value="${pubdate}" pattern="yyyy.mm.dd"/></span>
-
 		                </div>
+		                <c:if test="${bookList.discount != ''}">
 		                <div class="price">
 		                    <span id="origin">${bookList.price}원</span> &nbsp; → &nbsp;<span id="discount">${bookList.discount}원</span>
+		                    <c:set var="per" value="${ ( bookList.price - bookList.discount ) / bookList.price * 100 }" />
+		                    <span id="discount">(-<fmt:parseNumber value="${per}" integerOnly="true"/>%)</span>
 		                </div>
+		                </c:if>
+		                <c:if test="${bookList.discount == ''}">
+		                <div class="price">
+		                    <span>${bookList.price}원</span>
+		                </div>
+		                </c:if>		                
 		                <div class="intro">
 		                    <span>${bookList.description}</span>
 		                </div>
