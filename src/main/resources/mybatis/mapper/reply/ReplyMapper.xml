@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.chboard.repository.ReplyMapper">
+
+
+	<resultMap id="ReplyMap" type="java.util.HashMap">
+		<id property="replyNo" column="reply_no"/>
+		<result property="boardNo" column="board_no"/>
+		<result property="replyContent" column="reply_content"/>
+		<result property="replyWriter" column="reply_writer"/>
+		<result property="replyRegdate" column="reply_regdate"/>
+	</resultMap>
+
+
+
+
+
+
+	<!-- 댓글 작성 -->
+	<insert id="ReplyWrite">
+		insert into reply(reply_no,board_no,reply_content,reply_writer)
+				   values(reply_seq.nextval,#{boardNo},#{replyContent},#{replyWriter})	
+	</insert>
+
+
+
+	
+</mapper>

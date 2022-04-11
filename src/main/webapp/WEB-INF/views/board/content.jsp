@@ -27,8 +27,12 @@
 		<button class="boardBtn" onclick="location.href='/list'">돌아가기</button>
 		</div>		
 	</div>
-
+	
 
 </div>
+
+<!-- 댓글 관련 페이지 -->
+<%@include file="../reply/reply.jsp"%>
+
 <script src="/js/board/content.js"></script>
 <%@include file="../include/footer.jsp"%>
