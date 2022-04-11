@@ -60,12 +60,15 @@ public class BoardController {
 	@GetMapping("/board/{boardNo}")
 	public String content(@PathVariable int boardNo, Model model) {
 
-		log.info("----------------------------");
-		log.info("boardNo : {}",boardNo);
-		log.info("----------------------------");
+
 		Map<String, Object> content = boardService.content(boardNo);
 		
 		model.addAttribute("content",content);
+		
+		log.info("----------------------------");
+		log.info("content : {}",content.get("content"));
+		log.info("----------------------------");
+		
 
 		return "board/content";
 	}

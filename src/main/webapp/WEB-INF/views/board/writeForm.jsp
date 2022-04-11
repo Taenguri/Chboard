@@ -10,10 +10,30 @@
 			<label for="title">제목</label> 
 			<input type="text" class="form-control" id="title"/>
 		</div>
+			
+		
+		<c:if test="${general == null && admin == null}">		
 		<div class="form-group">
 			<label for="writer">작성자</label> 
 			<input type="text" class="form-control" id="writer"/>
 		</div>
+		</c:if>
+		<c:if test="${general != null}">
+		<div class="form-group">
+			<label for="writer">작성자</label> 
+			<input type="text" class="form-control" id="writer" value="${general.userName}" readonly/>
+		</div>
+		</c:if>		
+		
+		<c:if test="${admin != null}">
+		<div class="form-group">
+			<label for="writer">작성자</label> 
+			<input type="text" class="form-control" id="writer" value="${admin.userName}" readonly/>
+		</div>
+		</c:if>
+		
+		
+				
 		<div class="form-group">
 			<label for="content">내용</label> 
 			<textarea id="content" name="content"></textarea>

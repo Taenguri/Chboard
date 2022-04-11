@@ -48,7 +48,8 @@
       <li><a href="/booksearch" target="_blank" >네이버 책 검색</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a style="color:white;">등급 : 일반사용자</a></li>
+      <li><a>${general.userName}님</a></li>
+      <li><a>등급 : 일반사용자</a></li>
       <li><a href="/user/${general.userNo}">회원정보</a></li>
       <li><a href="/logout">로그아웃</a></li>
     </ul>
@@ -69,7 +70,8 @@
       <li><a href="/booksearch" target="_blank" >네이버 책 검색</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a style="color:white;">등급 : 관리자</a></li>
+      <li><a>${admin.userName}님</a></li>
+      <li><a>등급 : 관리자</a></li>
       <li><a href="/userList">회원목록</a></li>      
       <li><a href="/user/${admin.userNo}">회원정보</a></li>
       <li><a href="/logout">로그아웃</a></li>
