@@ -64,8 +64,9 @@ public class BoardController {
 		log.info("boardNo : {}",boardNo);
 		log.info("----------------------------");
 		Map<String, Object> content = boardService.content(boardNo);
-		model.addAttribute("content",content);
 		
+		model.addAttribute("content",content);
+
 		return "board/content";
 	}
 	

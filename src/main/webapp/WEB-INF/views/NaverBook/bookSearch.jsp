@@ -34,29 +34,29 @@
           </ul>
       </div>
       <div class="search_result">
-        <span><b>${KDMap.keyword}</b> &nbsp; 에 대한 검색결과</span>
+        <span><b>${keyword}</b>&nbsp; 에 대한 검색결과</span>
       </div>
     <div class="inner">
         <div class="count">
-            <span id="count_main">책 검색</span><span id="count_sub"> ${KDMap.display}건</span>
+            <span id="count_main">책 검색</span><span id="count_sub">${display}건</span>
         </div>
-	        <c:forEach var="resultMap" items="${resultMap}">
+	        <c:forEach var="bookList" items="${bookList}">
 		        <div class="bookList">
 		            <div class="book_image">
-		                <img src="${resultMap.image}" style="height: 200px; width: 100%;"/>
+		                <img src="${bookList.image}" style="height: 200px; width: 100%;"/>
 		            </div>
 		            <div class="bookContent">
 		                <div class="bookTitle">
-		                    <span>${resultMap.title}</span>
+		                    <span>${bookList.title}</span>
 		                </div>
 		                <div class="pub">
-		                    <span>${resultMap.author}</span> <span id="bar">|</span> <span>${resultMap.publisher}</span>  <span id="bar">|</span> <span><fmt:formatDate value="${resultMap.pubdate}" pattern="yyyy.MM.dd"/></span>
+		                    <span>${bookList.author}</span> <span id="bar">|</span> <span>${bookList.publisher}</span>  <span id="bar">|</span> <span>${bookList.pubdate}</span>
 		                </div>
 		                <div class="price">
-		                    <span id="origin">${resultMap.price}원</span> &nbsp; → &nbsp;<span id="discount">${resultMap.discount}원</span>
+		                    <span id="origin">${bookList.price}원</span> &nbsp; → &nbsp;<span id="discount">${bookList.discount}원</span>
 		                </div>
 		                <div class="intro">
-		                    <span>${resultMap.description}</span>
+		                    <span>${bookList.description}</span>
 		                </div>
 		            </div>
 		
@@ -64,6 +64,6 @@
 	        </c:forEach>
     </div>
     <div class="endline"></div>
-<script src="/js/naver/naver.js"></script>
+<script src="/js/NaverBook/NaverBook.js"></script>
 </body>
 </html>
