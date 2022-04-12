@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+
 <mapper namespace="com.spring.chboard.repository.ReplyMapper">
 
 
@@ -14,17 +15,26 @@
 	</resultMap>
 
 
-
-
-
-
 	<!-- 댓글 작성 -->
 	<insert id="ReplyWrite">
 		insert into reply(reply_no,board_no,reply_content,reply_writer)
 				   values(reply_seq.nextval,#{boardNo},#{replyContent},#{replyWriter})	
 	</insert>
 
+	<!-- 댓글 리스트 -->
+	<select id="ReplyList" resultMap="ReplyMap">
+		select reply_no,board_no,reply_content,reply_writer,reply_regdate from reply
+		where board_no = #{boardNo} ORDER BY reply_no DESC
+	</select>
+	
+	<!-- 댓글 수정 -->
+	<update id="ReplyUpdate">
+		update reply set reply_content = #{replyContent} where reply_no =#{replyNo}
+	</update>
 
-
+	<!-- 댓글 삭제 -->
+	<delete id="ReplyDelete">
+		delete from reply where reply_no = #{replyNo}
+	</delete>
 	
 </mapper>
