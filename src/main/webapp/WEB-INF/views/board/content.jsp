@@ -34,5 +34,6 @@
 <!-- 댓글 관련 페이지 -->
 <%@include file="../reply/reply.jsp"%>
 
+
 <script src="/js/board/content.js"></script>
 <%@include file="../include/footer.jsp"%>

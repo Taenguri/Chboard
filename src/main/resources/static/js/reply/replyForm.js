@@ -30,6 +30,7 @@ document.querySelector("#replyWriteBtn").addEventListener("click", function() {
 		if (xhr.status === 200 || xhr.status === 201) {
 			if (xhr.responseText == "ok") {
 				listReply();
+				document.getElementById('replyCon').value = '';
 			}
 			else if (xhr.responseText == "no") {
 				alert("댓글쓰기 실패");
@@ -76,10 +77,10 @@ function listReply() {
 				output += "<div class='replySub'>" + JsonResult[i].replyContent;
 				output += "</div>";
 				output += "</div>";
-
 				output += "<div class='replyBtnArea'>";
-				output += "<button id='replyUpdate'>수정</button>";
-				output += "<button id='replyDelete'>삭제</button>";
+//				output += "<button onclick='replyUpdateView(" + JsonResult[i].replyNo + "," + JsonResult[i].replyWriter +  ")'>수정</button>";
+				output += '<button onclick="replyUpdateView(' +   JsonResult[i].replyNo  + ',\'' + JsonResult[i].replyWriter + '\', \''+ JsonResult[i].replyContent+'\',\''+ repDate + '\' )">수정</button>';
+				output += "<button onclick='replyDelete(" + JsonResult[i].replyNo +")'>삭제</button>";
 				output += "</div>";
 
 				output += "</div>";
@@ -105,44 +106,67 @@ function enterkey() {
 	}
 }
 
-
-
-
-//댓글 삭제
-document.querySelector("#replyDelete").addEventListener("click", function() {
-
-
-	let replyNo = document.getElementById("replySelectId").value;
-	console.log(replyNo);
-
-	/*let xhr = new XMLHttpRequest();
-
-
-
-	xhr.open('DELETE', '/rest/board/' + boardNo);
-	xhr.send(boardNo);
-
-
+//댓글 수정
+function replyUpdateView(replyNo, replyWriter,replyContent,repDate) {
+	console.log('댓글번호 : '+ replyNo);
+	console.log(' 작성자 : ' + replyWriter);
+	console.log(' 날짜 : ' + repDate);
+	console.log(' 내용 : ' + replyContent);
+	
+/*	let xhr = new XMLHttpRequest();
+	xhr.open('DELETE', '/rest/reply/' + replyNo);
+	xhr.send(replyNo);
 
 	xhr.onload = function() {
 		if (xhr.status === 200 || xhr.status === 201) {
 			if (xhr.responseText == "ok") {
 				alert("삭제 성공");
-				location.href = '/list';
+				listReply();
 			}
 			else if (xhr.responseText == "no") {
 				alert("삭제 실패");
-				location.href = '/board/' + boardNo;
+				location.href = '/board/' + document.getElementById('boardNo').value;
 			}
 		} else {
 			alert("오류 발생");
-			location.href = '/board/' + boardNo;
+			location.href = '/board/' + document.getElementById('boardNo').value;
 		}
 	};*/
 
 
+}
 
-});
+
+
+
+//댓글 삭제
+function replyDelete(replyNo) {
+	console.log(replyNo);
+	let xhr = new XMLHttpRequest();
+
+	xhr.open('DELETE', '/rest/reply/' + replyNo);
+	xhr.send(replyNo);
+
+	xhr.onload = function() {
+		if (xhr.status === 200 || xhr.status === 201) {
+			if (xhr.responseText == "ok") {
+				alert("삭제 성공");
+				listReply();
+			}
+			else if (xhr.responseText == "no") {
+				alert("삭제 실패");
+				location.href = '/board/' + document.getElementById('boardNo').value;
+			}
+		} else {
+			alert("오류 발생");
+			location.href = '/board/' + document.getElementById('boardNo').value;
+		}
+	};
+}
+
+
+
+
 /*function listReply() {
 	commonAjax("GET", "replyList", document.getElementById('boardNo').value);
 }
