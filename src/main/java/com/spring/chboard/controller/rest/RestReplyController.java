@@ -46,7 +46,7 @@ public class RestReplyController {
     }
     
     
-	//글삭제
+	// 댓글 삭제
 	@DeleteMapping("/rest/reply/{replyNo}")
 	public String delete(@PathVariable int replyNo) {
 		
@@ -63,7 +63,7 @@ public class RestReplyController {
     
     
 
-	//글수정
+	// 댓글 수정
 	@PutMapping("/rest/reply/{replyNo}")
 	public String update(@PathVariable int replyNo, @RequestParam Map<String, Object> map ) {
 		
