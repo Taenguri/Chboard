@@ -138,7 +138,7 @@ function replyUpdateView(replyNo, replyWriter, replyContent, repDate) {
 	output += "</div>";
 	output += "<div class='replyBtnArea'>";
 	output += '<button id = "updateOk" onclick="replyUpdateOk(' + replyNo + ',\'' + replyWriter + '\',\'' + repDate + '\' )">완료</button>';
-	output += '<button>취소</button>';
+	output += '<button onclick="Updatecancle()">취소</button>';
 	
 	output += "</div>";
 
@@ -224,6 +224,14 @@ function updateKey() {
 		document.getElementById('updateOk').click();
 	}
 }
+
+//댓글 수정 취소
+function Updatecancle(){
+	location.href='/board/'+document.getElementById('boardNo').value;
+	
+}
+	
+	
 /*function listReply() {
 	commonAjax("GET", "replyList", document.getElementById('boardNo').value);
 }
