@@ -21,6 +21,7 @@
 	
 
 <div id="listReply"></div>	
+<div id="replyUpdateForm" style="display:none"></div>	
 	
 	
 	

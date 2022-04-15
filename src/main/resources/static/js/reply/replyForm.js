@@ -133,26 +133,27 @@ function replyUpdateView(replyNo, replyWriter, replyContent, repDate) {
 	output += "<div class='replyMain'><span id='repWriter'>" + replyWriter + "</span>";
 	output += "<span id='repDate'>" + repDate + "</span>";
 	output += "</div>";
-	output += "<textarea rows='3' cols='170' id='changedReplyContent' onkeyup='updateKey();'>" + replyContent;
-	output += "</textarea>"; 
+	output += "<textarea rows='3' id='changedReplyContent' onkeyup='updateKey();'>" + replyContent;
+	output += "</textarea>";
 	output += "</div>";
 	output += "<div class='replyBtnArea'>";
 	output += '<button id = "updateOk" onclick="replyUpdateOk(' + replyNo + ',\'' + replyWriter + '\',\'' + repDate + '\' )">완료</button>';
 	output += '<button onclick="Updatecancle()">취소</button>';
-	
+
 	output += "</div>";
 
 	output += "</div>";
 	output += "</div>";
-	
-	document.getElementById('listReply').innerHTML = output;
+	document.getElementById("replyUpdateForm").style.display = "block";
+	document.getElementById("listReply").style.display = "none";
+	document.getElementById('replyUpdateForm').innerHTML = output;
 }
 
 
 // 댓글 수정
-function replyUpdateOk(replyNo, replyWriter, repDate){
+function replyUpdateOk(replyNo, replyWriter, repDate) {
 
-	
+
 	let xhr = new XMLHttpRequest();
 	let formData = new FormData();
 	formData.append('replyNo', replyNo);
@@ -170,6 +171,8 @@ function replyUpdateOk(replyNo, replyWriter, repDate){
 	xhr.onload = function() {
 		if (xhr.status === 200 || xhr.status === 201) {
 			if (xhr.responseText == "ok") {
+				document.getElementById("listReply").style.display = "block";
+				document.getElementById("replyUpdateForm").style.display = "none";
 				listReply();
 			}
 			else if (xhr.responseText == "no") {
@@ -180,8 +183,8 @@ function replyUpdateOk(replyNo, replyWriter, repDate){
 			alert("오류 발생");
 			location.href = '/board/' + document.getElementById('boardNo').value;
 		}
-	};	
-	
+	};
+
 }
 
 //댓글 삭제
@@ -226,12 +229,13 @@ function updateKey() {
 }
 
 //댓글 수정 취소
-function Updatecancle(){
-	location.href='/board/'+document.getElementById('boardNo').value;
-	
+function Updatecancle() {
+	document.getElementById("listReply").style.display = "block";
+	document.getElementById("replyUpdateForm").style.display = "none";
+
 }
-	
-	
+
+
 /*function listReply() {
 	commonAjax("GET", "replyList", document.getElementById('boardNo').value);
 }

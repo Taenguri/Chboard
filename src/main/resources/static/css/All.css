@@ -219,7 +219,9 @@
 	display: flex;
 }
 
-
+#changedReplyContent{
+	width:100%;
+}
 
 .replyContentArea{
 	width: 95%;
