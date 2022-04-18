@@ -10,5 +10,5 @@ create table board(
 
 create sequence board_seq;
 
-//샘플데이터 삽입
+//더미데이터 삽입
 insert into board(board_no,title,content,writer)(select board_seq.nextval, title,content, writer from board);	
